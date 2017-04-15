@@ -2,14 +2,17 @@ import os
 import psutil
 
 def finding_primes(roof_num):
-    bool_list = [True]*roof_num
-    bool_list[0] = False
-    for index, bool in enumerate(bool_list):
+    """
+    finds primes, return(?) as itarate
+    """
+    bool_list = [True]*roof_num #list of True, each boolian statement represents a number. So index+1=number
+    bool_list[0] = False        # 1 is not a prime, so it is false
+    for index, bool in enumerate(bool_list): 
         index += 1
-        if bool == True:
-            for index_multiple in range(index*index, roof_num+1, index):
-                bool_list[index_multiple-1] = False
-            yield (index)
+        if bool == True:        #if it is True, the index will be a prime
+            for index_multiple in range(index*index, roof_num+1, index):    #every multiple of that prime will turn into False
+                bool_list[index_multiple-1] = False 
+            yield (index) 
         else:
             pass
 
